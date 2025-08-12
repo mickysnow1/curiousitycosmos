@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curiosity Cosmos - Spark Curiosity, Learn, and Earn Rewards!</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌟%3C/text%3E%3C/svg%3E">
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+  <a href="#main" class="sr-only">Skip to content</a>
+  <header class="header-section">
+    <div class="container">
+      <nav class="nav-bar">
+        <div class="logo">Curiosity Cosmos</div>
+        <ul class="nav-links">
+          <li><a href="#home"><span class="icon">🏠</span>Home</a></li>
+          <li><a href="#explore"><span class="icon">🔍</span>Explore Topics</a></li>
+          <li><a href="#rewards"><span class="icon">🎁</span>Rewards</a></li>
+          <li><a href="#for-parents"><span class="icon">👪</span>For Parents</a></li>
+          <li><a href="#for-teachers"><span class="icon">👩‍🏫</span>For Teachers</a></li>
+          <li><a href="#signup">Sign Up</a></li>
+          <li><a href="#login">Log In</a></li>
+        </ul>
+        <div class="nav-tools">
+          <button id="textToSpeech" aria-label="Toggle text-to-speech">🔊</button>
+          <select id="languageToggle" aria-label="Change language">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+          </select>
+        </div>
+      </nav>
+      <div class="hero">
+        <h1>Spark Curiosity, Learn, and Earn Rewards!</h1>
+        <div class="hero-image" aria-hidden="true"></div> <!-- Replace with fixed URL: e.g., https://images.unsplash.com/photo-1570545887594-459dd1a6eacf?ixlib=rb-4.0.3&fm=jpg&w=800&fit=max -->
+        <div class="cta-group">
+          <a href="#signup" class="btn primary">Start Your Adventure!</a>
+          <a href="#for-parents" class="btn secondary">For Parents & Teachers</a>
+        </div>
+        <div class="age-toggle">
+          <label for="ageGroup">Choose your age:</label>
+          <select id="ageGroup" aria-label="Select age group">
+            <option value="1-5">1-5</option>
+            <option value="6-10">6-10</option>
+            <option value="11-16">11-16</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main id="main">
+    <section id="welcome" class="welcome-section container">
+      <h2>Learn, Explore, and Grow with Fun Activities!</h2>
+      <p class="subheadline">From math to mysteries, animals to ancient civilizations—earn points for every adventure, online or offline!</p>
+      <p>Discover school subjects, history, animals, and more through games, videos, and hands-on tasks. Earn points to unlock virtual rewards (avatars, badges) or real-world goodies (books, kits). Perfect for kids 1-16, with parent and teacher tools to support learning.</p>
+      <div class="carousel" aria-label="Activity carousel">
+        <div class="carousel-item">
+          <img src="https://source.unsplash.com/400x200/?kids,pyramid" alt="Kids building a model pyramid" loading="lazy"> <!-- Replace with fixed URL: e.g., https://images.unsplash.com/photo-1638799695620-9d5d9c1e3f8f?ixlib=rb-4.0.3&fm=jpg&w=400&fit=max -->
+          <p>Build a model pyramid</p>
+        </div>
+        <div class="carousel-item">
+          <img src="https://source.unsplash.com/400x200/?kids,math" alt="Kids solving a math puzzle" loading="lazy"> <!-- Replace with fixed URL: e.g., https://images.unsplash.com/photo-1638799695620-9d5d9c1e3f8f?ixlib=rb-4.0.3&fm=jpg&w=400&fit=max -->
+          <p>Solve a math puzzle</p>
+        </div>
+        <div class="carousel-item">
+          <img src="https://source.unsplash.com/400x200/?kids,tiger" alt="Kids drawing a tiger" loading="lazy"> <!-- Replace with fixed URL: e.g., https://images.unsplash.com/photo-1638799695620-9d5d9c1e3f8f?ixlib=rb-4.0.3&fm=jpg&w=400&fit=max -->
+          <p>Draw a tiger</p>
+        </div>
+      </div>
+      <a href="#" class="btn try-free" data-dynamic-link="Try a Free Activity Now!">Try a Free Activity Now!</a>
+    </section>
+    <section id="features" class="features-section container">
+      <h2>Key Features</h2>
+      <div class="features-grid">
+        <article class="feature-card">
+          <span class="icon">💡</span>
+          <h3>Diverse Topics</h3>
+          <p>Explore math, science, history, animals, and more! From the Pyramids to pandas, spark your curiosity.</p>
+          <img src="https://source.unsplash.com/200x150/?kids,great-wall" alt="Kid exploring a virtual Great Wall" loading="lazy"> <!-- Replace with fixed URL: e.g., https://images.unsplash.com/photo-1638799695620-9d5d9c1e3f8f?ixlib=rb-4.0.3&fm=jpg&w=200&fit=max -->
+        </article>
+        <article class="feature-card">
+          <span class="icon">✏️</span>
+          <h3>Offline Adventures</h3>
+          <p>Get off screens with fun tasks like building a volcano or mapping your neighborhood. Earn big points!</p>
+          <img src="https://source.unsplash.com/200x150/?kids,clay-model" alt="Child with a clay model" loading="lazy"> <!-- Replace with fixed URL: e.g., https://images.unsplash.com/photo-1638799695620-9d5d9c1e3f8f?ixlib=rb-4.0.3&fm=jpg&w=200&fit=max -->
+        </article>
+        <article class="feature-card">
+          <span class="icon">🏫</span>
+          <h3>School Integration</h3>
+          <p>Teachers assign tasks for school credit and app points. Parents track progress.</p>
+          <img src="https://source.unsplash.com/200x150/?teacher,student" alt="Teacher and student reviewing a project" loading="lazy"> <!-- Replace with fixed URL: e.g., https://images.unsplash.com/photo-1638799695620-9d5d9c1e3f8f?ixlib=rb-4.0.3&fm=jpg&w=200&fit=max -->
+        </article>
+        <article class="feature-card">
+          <span class="icon">🎖️</span>
+          <h3>Reward System</h3>
+          <p>Earn points for every activity to unlock avatars, games, or real rewards like science kits!</p>
+          <img src="https://source.unsplash.com/200x150/?badge,book" alt="Virtual badge and mailed book" loading="lazy"> <!-- Replace with fixed URL: e.g., https://images.unsplash.com/photo-1638799695620-9d5d9c1e3f8f?ixlib=rb-4.0.3&fm=jpg&w=200&fit=max -->
+        </article>
+        <article class="feature-card">
+          <span class="icon">❓</span>
+          <h3>Curiosity Prompts</h3>
+          <p>Dive into Did You Know?, How Things Work, and Guinness World Records to learn something new every day.</p>
+          <img src="https://source.unsplash.com/200x150/?kids,book" alt="Kid reading a fact about the tallest statue" loading="lazy"> <!-- Replace with fixed URL: e.g., https://images.unsplash.com/photo-1638799695620-9d5d9c1e3f8f?ixlib=rb-4.0.3&fm=jpg&w=200&fit=max -->
+        </article>
+        <article class="feature-card">
+          <span class="icon">🔒</span>
+          <h3>Safe & Accessible</h3>
+          <p>Kid-safe, ad-free, with tools for all learners (text-to-speech, adjustable fonts).</p>
+          <img src="https://source.unsplash.com/200x150/?family,app" alt="Happy family using the app" loading="lazy"> <!-- Replace with fixed URL: e.g., https://images.unsplash.com/photo-1638799695620-9d5d9c1e3f8f?ixlib=rb-4.0.3&fm=jpg&w=200&fit=max -->
+        </article>
+      </div>
+    </section>
+    <section id="explore" class="explore-section container">
+      <h2>What Will You Discover Today?</h2>
+      <p class="subheadline">From school subjects to Wonders of the World, there’s something for every curious mind!</p>
+      <div class="topic-carousel" aria-label="Topic preview carousel">
+        <div class="topic-card" data-topic="educational">
+          <span class="icon">📐</span>
+          <p>Math - Build a pattern with blocks</p>
+        </div>
+        <!-- Other topic cards remain the same -->
+      </div>
+      <a href="#all-topics" class="btn">See All Topics</a>
+      <a href="#sample-task" class="btn">Try This: Make a Paper Crane!</a>
+    </section>
+    <section id="rewards" class="rewards-section container">
+      <h2>Earn Points, Unlock Awesome Rewards!</h2>
+      <p>Complete quizzes, projects, or offline adventures to earn points. Redeem them for virtual pets, new game levels, or cool kits sent to your home!</p>
+      <div class="reward-grid">
+        <!-- Reward cards remain the same -->
+      </div>
+      <div class="progress-map">
+        <div class="map-background"></div> <!-- Replace with fixed URL: e.g., https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&fm=jpg&w=400&fit=max for mountain journey -->
+        <div class="milestone">50 points = Curiosity Star badge</div>
+      </div>
+      <a href="#start-earning" class="btn">Start Earning Points!</a>
+    </section>
+    <section id="parents-teachers" class="parents-teachers-section container">
+      <h2>Support Your Child’s Learning Journey</h2>
+      <div class="split-section">
+        <div class="parents">
+          <h3>For Parents</h3>
+          <ul>
+            <li>Monitor progress, set screen time limits, approve rewards.</li>
+            <li>Offline tasks encourage hands-on learning (e.g., “Build a model volcano”).</li>
+            <li>Safe, ad-free, COPPA-compliant environment.</li>
+          </ul>
+          <a href="#parent-learn-more" class="btn">Learn More for Parents</a>
+        </div>
+        <div class="teachers">
+          <h3>For Teachers</h3>
+          <ul>
+            <li>Assign tasks for school credit and app points (e.g., “Write about the Maya”).</li>
+            <li>Sync with curricula via a teacher portal.</li>
+            <li>Track progress and integrate with gradebooks.</li>
+          </ul>
+          <a href="#teacher-learn-more" class="btn">Learn More for Teachers</a>
+        </div>
+      </div>
+      <img src="https://source.unsplash.com/400x200/?parent,teacher" alt="Parent and teacher using the app" loading="lazy"> <!-- Replace with fixed URL: e.g., https://images.unsplash.com/photo-1638799695620-9d5d9c1e3f8f?ixlib=rb-4.0.3&fm=jpg&w=400&fit=max -->
+    </section>
+    <section id="testimonials" class="testimonials-section container">
+      <h2>Kids Love Learning with Us!</h2>
+      <div class="testimonial-grid">
+        <blockquote>
+          <p>“I built a pyramid and got a cool badge!”</p>
+          <cite>Kid, Age 8</cite>
+        </blockquote>
+        <blockquote>
+          <p>“The offline tasks keep my kid engaged without extra screen time.”</p>
+          <cite>Parent</cite>
+        </blockquote>
+        <blockquote>
+          <p>“It’s easy to assign projects that kids love and I can grade.”</p>
+          <cite>Teacher</cite>
+        </blockquote>
+      </div>
+      <a href="#join" class="btn">Join Our Community!</a>
+    </section>
+  </main>
+  <footer class="footer-section">
+    <div class="container">
+      <div class="footer-links">
+        <a href="#about">About Us</a>
+        <a href="#privacy">Privacy Policy</a>
+        <a href="#contact">Contact</a>
+        <a href="#faq">FAQ</a>
+        <a href="#terms">Terms of Service</a>
+      </div>
+      <div class="subscription">
+        <p>Get updates on new topics and rewards!</p>
+        <input type="email" placeholder="Enter your email" aria-label="Email for updates">
+        <button class="btn">Subscribe</button>
+      </div>
+      <div class="social-media">
+        <a href="#x" aria-label="X for parent updates">X</a>
+      </div>
+      <p>Trusted by families and schools worldwide. COPPA compliant.</p>
+    </div>
+  </footer>
+  <script src="scripts.js" defer></script>
+</body>
+</html>
