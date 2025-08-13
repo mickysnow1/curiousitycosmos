@@ -36,39 +36,4 @@ document.addEventListener('DOMContentLoaded', () => {
   // Carousel Scrolling
   const carousels = document.querySelectorAll('.carousel, .topic-carousel');
   carousels.forEach(carousel => {
-    carousel.addEventListener('wheel', (e) => {
-      e.preventDefault();
-      carousel.scrollLeft += e.deltaY;
-    });
-  });
-
-  // Dynamic Content (Fixed to remove existing popup)
-  tryFree.addEventListener('click', (e) => {
-    e.preventDefault();
-    const existingPopup = document.querySelector('.activity-popup');
-    if (existingPopup) {
-      existingPopup.remove();
-    }
-    const activity = `<div class="activity-popup"><h3>Make a Paper Crane!</h3><p>Fold a paper into a crane shape. Share a photo with us!</p><button class="btn close">Done</button></div>`;
-    const popup = document.createElement('div');
-    popup.innerHTML = activity;
-    document.body.appendChild(popup);
-    popup.querySelector('.close').addEventListener('click', () => popup.remove());
-  });
-
-  // Hover Effects
-  const cards = document.querySelectorAll('.feature-card, .topic-card, .reward-card, .support-card, blockquote');
-  cards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-      card.style.transform = 'scale(1.05)';
-    });
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'scale(1)';
-    });
-  });
-
-  // Navigation Toggle for Mobile
-  navToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-  });
-});
+    carousel.add
