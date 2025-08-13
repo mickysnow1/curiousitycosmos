@@ -1,7 +1,7 @@
 /* Global Styles */
 body {
   font-family: 'Open Sans', sans-serif;
-  background-color: #f0f8ff;
+  background-color: #f0f8ff; /* Light Cyan */
   color: #333;
   line-height: 1.6;
   margin: 0;
@@ -10,7 +10,7 @@ body {
 }
 h1, h2, h3 {
   font-family: 'Comic Neue', sans-serif;
-  color: #007bff;
+  color: #007bff; /* Bright Blue */
 }
 .container {
   max-width: 1200px;
@@ -219,4 +219,33 @@ h1, h2, h3 {
 .carousel {
   display: flex;
   gap: 20px;
-  overflow
+  overflow-x: auto;
+  padding: 20px 0;
+}
+.carousel-item {
+  flex: 0 0 300px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+.carousel-item:hover {
+  transform: scale(1.05);
+}
+.carousel-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Features Section */
+.features-section {
+  background-color: #f0f8ff;
+  padding: 40px 0;
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+.feature-card {
