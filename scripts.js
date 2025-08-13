@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   const body = document.body;
   const ageGroup = document.getElementById('ageGroup');
-  const textToSpeechBtn = document.getElementById('textToSpeech');
-  const tryFreeBtn = document.querySelector('.try-free');
+  const textToSpeech = document.getElementById('textToSpeech');
+  const tryFree = document.querySelector('.try-free');
   const languageToggle = document.getElementById('languageToggle');
 
   // Age Differentiation
@@ -22,12 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
       speechSynthesis.speak(utterance);
     }
   }
-  textToSpeechBtn.addEventListener('click', () => {
+  textToSpeech.addEventListener('click', () => {
     const text = document.body.innerText;
     speak(text);
   });
 
-  // Language Toggle (Placeholder - Would require translation library for full implementation)
+  // Language Toggle (Placeholder - Would require translation library for full implementation in this demo)
   languageToggle.addEventListener('change', (e) => {
     alert(`Switching to ${e.target.value}. (Translation not implemented in this demo)`);
   });
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Dynamic Content for Try Free Activity
-  tryFreeBtn.addEventListener('click', (e) => {
+  tryFree.addEventListener('click', (e) => {
     e.preventDefault();
     fetch('data/sample-activity.html')
       .then(response => response.text())
@@ -54,13 +54,24 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Hover Effects for Interactive Elements
-  const cards = document.querySelectorAll('.feature-card, .topic-card, .reward-card');
+  const cards = document.querySelectorAll('.feature-card, .topic-card, .reward-card, blockquote');
   cards.forEach(card => {
     card.addEventListener('mouseenter', () => {
       card.style.transform = 'scale(1.05)';
     });
     card.addEventListener('mouseleave', () => {
       card.style.transform = 'scale(1)';
+    });
+  });
+
+  // Gamification: Add confetti on button click (simple animation)
+  const buttons = document.querySelectorAll('.btn');
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const confetti = document.createElement('div');
+      confetti.classList.add('confetti');
+      button.appendChild(confetti);
+      setTimeout(() => confetti.remove(), 1000);
     });
   });
 });
