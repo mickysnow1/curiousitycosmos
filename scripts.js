@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const textToSpeech = document.getElementById('textToSpeech');
   const tryFree = document.querySelector('.try-free');
   const languageToggle = document.getElementById('languageToggle');
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
 
   // Age Differentiation
   ageGroup.addEventListener('change', (e) => {
@@ -43,17 +45,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // Dynamic Content (Fixed to remove existing popup)
   tryFree.addEventListener('click', (e) => {
     e.preventDefault();
-    // Remove any existing popup
     const existingPopup = document.querySelector('.activity-popup');
     if (existingPopup) {
       existingPopup.remove();
     }
-    // Create new popup
     const activity = `<div class="activity-popup"><h3>Make a Paper Crane!</h3><p>Fold a paper into a crane shape. Share a photo with us!</p><button class="btn close">Done</button></div>`;
     const popup = document.createElement('div');
     popup.innerHTML = activity;
     document.body.appendChild(popup);
-    // Add event listener to close popup
     popup.querySelector('.close').addEventListener('click', () => popup.remove());
   });
 
@@ -66,5 +65,10 @@ document.addEventListener('DOMContentLoaded', () => {
     card.addEventListener('mouseleave', () => {
       card.style.transform = 'scale(1)';
     });
+  });
+
+  // Navigation Toggle for Mobile
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
   });
 });
