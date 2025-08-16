@@ -116,34 +116,34 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Smooth scrolling for anchor links
-    const anchorLinks = document.querySelectorAll('a[href^="#"]');
-    anchorLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                e.preventDefault();
-                const headerHeight = document.querySelector('.header').offsetHeight || 0;
-                const targetPosition = targetElement.offsetTop - headerHeight - 20;
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-                if (navMenu && navMenu.classList.contains('active')) {
-                    navMenu.classList.remove('active');
-                    mobileMenuBtn.classList.remove('active');
-                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                    dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
-                    try {
-                        lucide.createIcons();
-                    } catch (e) {
-                        console.warn('Lucide icons failed to reinitialize:', e);
-                    }
+// Smooth scrolling for anchor links
+const anchorLinks = document.querySelectorAll('a[href^="#"]');
+anchorLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            e.preventDefault();
+            const headerHeight = document.querySelector('.header').offsetHeight || 0;
+            const targetPosition = targetElement.offsetTop - headerHeight - 20;
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+            if (navMenu && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
+                try {
+                    lucide.createIcons();
+                } catch (e) {
+                    console.warn('Lucide icons failed to reinitialize:', e);
                 }
             }
-        });
+        }
     });
+});
 
     // Floating blocks animation delays
     const floatingBlocks = document.querySelectorAll('.floating-block');
