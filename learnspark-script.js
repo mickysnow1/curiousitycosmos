@@ -1,5 +1,4 @@
-// LearnSpark JavaScript
-
+// learnspark-script.js
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize Lucide icons with error handling
     try {
@@ -12,119 +11,101 @@ document.addEventListener('DOMContentLoaded', function() {
             mobileMenuBtn.innerHTML = '<span class="sr-only">Toggle Menu</span><span>Menu</span>';
         }
     }
-    
-    // Mobile menu functionality
+
+    // Mobile menu and dropdown functionality
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileNav = document.getElementById('mobileNav');
-    const menuIcon = document.getElementById('menuIcon');
-    const closeIcon = document.getElementById('closeIcon');
-    
-    if (mobileMenuBtn && mobileNav && menuIcon && closeIcon) {
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (mobileMenuBtn && navMenu) {
         mobileMenuBtn.addEventListener('click', function() {
-            const isOpen = mobileNav.classList.contains('active');
-            
-            if (isOpen) {
-                mobileNav.classList.remove('active');
-                menuIcon.style.display = 'block';
-                closeIcon.style.display = 'none';
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                mobileMenuBtn.innerHTML = '<i data-lucide="menu" id="menuIcon" aria-hidden="true"></i><i data-lucide="x" id="closeIcon" style="display: none;" aria-hidden="true"></i><span class="sr-only">Toggle Menu</span>';
-            } else {
-                mobileNav.classList.add('active');
-                menuIcon.style.display = 'none';
-                closeIcon.style.display = 'block';
-                mobileMenuBtn.setAttribute('aria-expanded', 'true');
-                mobileMenuBtn.innerHTML = '<i data-lucide="menu" id="menuIcon" style="display: none;" aria-hidden="true"></i><i data-lucide="x" id="closeIcon" aria-hidden="true"></i><span class="sr-only">Toggle Menu</span>';
-            }
-            // Reinitialize Lucide icons after toggle
+            const isOpen = navMenu.classList.contains('active');
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active');
+            mobileMenuBtn.setAttribute('aria-expanded', !isOpen);
             try {
                 lucide.createIcons();
             } catch (e) {
                 console.warn('Lucide icons failed to reinitialize:', e);
             }
         });
-        
-        // Close mobile menu when clicking on links
-        const mobileLinks = mobileNav.querySelectorAll('a');
-        mobileLinks.forEach(link => {
+
+        // Dropdown toggle for mobile
+        const dropdowns = document.querySelectorAll('.dropdown');
+        dropdowns.forEach(dropdown => {
+            const toggle = dropdown.querySelector('.dropdown-toggle');
+            toggle.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                }
+            });
+        });
+
+        // Close mobile menu when clicking links
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
             link.addEventListener('click', function() {
-                mobileNav.classList.remove('active');
-                menuIcon.style.display = 'block';
-                closeIcon.style.display = 'none';
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                mobileMenuBtn.innerHTML = '<i data-lucide="menu" id="menuIcon" aria-hidden="true"></i><i data-lucide="x" id="closeIcon" style="display: none;" aria-hidden="true"></i><span class="sr-only">Toggle Menu</span>';
-                // Reinitialize Lucide icons
-                try {
-                    lucide.createIcons();
-                } catch (e) {
-                    console.warn('Lucide icons failed to reinitialize:', e);
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.classList.remove('active');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
+                    try {
+                        lucide.createIcons();
+                    } catch (e) {
+                        console.warn('Lucide icons failed to reinitialize:', e);
+                    }
                 }
             });
         });
     } else {
         console.warn('Mobile menu elements not found');
     }
-    
+
     // FAQ functionality
     const faqItems = document.querySelectorAll('.faq-item');
-    
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
-        
         question.addEventListener('click', function() {
             const isActive = item.classList.contains('active');
-            
-            // Close all FAQ items
-            faqItems.forEach(faqItem => {
-                faqItem.classList.remove('active');
-            });
-            
-            // Open clicked item if it wasn't active
+            faqItems.forEach(faqItem => faqItem.classList.remove('active'));
             if (!isActive) {
                 item.classList.add('active');
             }
         });
     });
-    
+
     // Form submission
     const learningForm = document.getElementById('learningForm');
     const successToast = document.getElementById('successToast');
-    
+
     if (learningForm) {
         learningForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Get form data
             const formData = new FormData(learningForm);
             const childName = formData.get('childName');
             const childAge = formData.get('childAge');
             const parentName = formData.get('parentName');
             const email = formData.get('email');
             const challenges = formData.get('challenges');
-            
-            // Basic validation
+
             if (!childName || !childAge || !parentName || !email) {
                 showError('Please fill in all required fields.');
                 return;
             }
-            
+
             if (childAge < 1 || childAge > 16) {
                 showError('Child age must be between 1 and 16.');
                 return;
             }
-            
+
             if (!validateEmail(email)) {
                 showError('Please enter a valid email address.');
                 return;
             }
-            
-            // Show success toast
+
             showToast();
-            
-            // Reset form
             learningForm.reset();
-            
-            // In a real application, you would send this data to a server
             console.log('Form submitted with data:', {
                 childName,
                 childAge,
@@ -134,34 +115,26 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-    
+
     // Smooth scrolling for anchor links
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
-    
     anchorLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
-            
             if (targetElement) {
                 e.preventDefault();
-                
                 const headerHeight = document.querySelector('.header').offsetHeight || 0;
                 const targetPosition = targetElement.offsetTop - headerHeight - 20;
-                
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
                 });
-                
-                // Close mobile menu if open
-                if (mobileNav && mobileNav.classList.contains('active')) {
-                    mobileNav.classList.remove('active');
-                    menuIcon.style.display = 'block';
-                    closeIcon.style.display = 'none';
+                if (navMenu && navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.classList.remove('active');
                     mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                    mobileMenuBtn.innerHTML = '<i data-lucide="menu" id="menuIcon" aria-hidden="true"></i><i data-lucide="x" id="closeIcon" style="display: none;" aria-hidden="true"></i><span class="sr-only">Toggle Menu</span>';
-                    // Reinitialize Lucide icons
+                    dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
                     try {
                         lucide.createIcons();
                     } catch (e) {
@@ -171,21 +144,19 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
+
     // Floating blocks animation delays
     const floatingBlocks = document.querySelectorAll('.floating-block');
-    
     floatingBlocks.forEach((block, index) => {
-        const delay = index * 200; // 200ms delay between each block
+        const delay = index * 200;
         block.style.animationDelay = `${delay}ms`;
     });
-    
-    // Add scroll-based animations
+
+    // Scroll-based animations
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
-    
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -194,20 +165,16 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }, observerOptions);
-    
-    // Observe elements for scroll animations
     const animatedElements = document.querySelectorAll('.step-card, .pricing-card, .card');
-    
     animatedElements.forEach(element => {
         element.style.opacity = '0';
         element.style.transform = 'translateY(30px)';
         element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(element);
     });
-    
+
     // Header background on scroll
     const header = document.querySelector('.header');
-    
     window.addEventListener('scroll', function() {
         if (window.scrollY > 100) {
             header.style.background = 'rgba(255, 255, 255, 0.95)';
@@ -217,36 +184,31 @@ document.addEventListener('DOMContentLoaded', function() {
             header.style.backdropFilter = 'blur(12px)';
         }
     });
-    
-    // Add hover effects to pricing cards
+
+    // Pricing cards hover effects
     const pricingCards = document.querySelectorAll('.pricing-card');
-    
     pricingCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
             if (!this.classList.contains('featured')) {
                 this.style.borderColor = 'rgba(59, 130, 246, 0.3)';
             }
         });
-        
         card.addEventListener('mouseleave', function() {
             if (!this.classList.contains('featured')) {
                 this.style.borderColor = 'rgba(156, 163, 175, 0.2)';
             }
         });
     });
-    
-    // Add click effects to buttons
+
+    // Button click effects
     const buttons = document.querySelectorAll('.cta-button, .plan-button, .form-submit-btn');
-    
     buttons.forEach(button => {
         button.addEventListener('click', function(e) {
-            // Create ripple effect
             const ripple = document.createElement('div');
             const rect = this.getBoundingClientRect();
             const size = Math.max(rect.width, rect.height);
             const x = e.clientX - rect.left - size / 2;
             const y = e.clientY - rect.top - size / 2;
-            
             ripple.style.cssText = `
                 position: absolute;
                 width: ${size}px;
@@ -259,18 +221,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 animation: ripple 0.6s ease-out;
                 pointer-events: none;
             `;
-            
             this.style.position = 'relative';
             this.style.overflow = 'hidden';
             this.appendChild(ripple);
-            
-            setTimeout(() => {
-                ripple.remove();
-            }, 600);
+            setTimeout(() => ripple.remove(), 600);
         });
     });
-    
-    // Add CSS for ripple animation
+
+    // Ripple animation CSS
     const style = document.createElement('style');
     style.textContent = `
         @keyframes ripple {
@@ -284,15 +242,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Age-specific theme application
     const ageInput = document.getElementById('childAge');
-    
     if (ageInput) {
         ageInput.addEventListener('change', function() {
             const age = parseInt(this.value);
             if (age) {
                 const body = document.body;
-                // Remove existing theme classes
                 body.classList.remove('toddler-theme', 'preschool-theme', 'elementary-theme', 'middle-theme', 'teen-theme');
-                
                 if (age >= 1 && age <= 3) {
                     body.classList.add('toddler-theme');
                 } else if (age >= 4 && age <= 5) {
@@ -307,26 +262,20 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
+
     // Keyboard navigation for accessibility
     document.addEventListener('keydown', function(e) {
-        // Press 'Enter' or 'Space' to activate FAQ items or mobile menu
         if ((e.key === 'Enter' || e.key === ' ') && e.target.closest('.faq-question')) {
             e.preventDefault();
             e.target.closest('.faq-question').click();
         } else if ((e.key === 'Enter' || e.key === ' ') && e.target === mobileMenuBtn) {
             e.preventDefault();
             mobileMenuBtn.click();
-        }
-        
-        // Press 'Escape' to close mobile menu
-        if (e.key === 'Escape' && mobileNav && mobileNav.classList.contains('active')) {
-            mobileNav.classList.remove('active');
-            menuIcon.style.display = 'block';
-            closeIcon.style.display = 'none';
+        } else if (e.key === 'Escape' && navMenu && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            mobileMenuBtn.classList.remove('active');
             mobileMenuBtn.setAttribute('aria-expanded', 'false');
-            mobileMenuBtn.innerHTML = '<i data-lucide="menu" id="menuIcon" aria-hidden="true"></i><i data-lucide="x" id="closeIcon" style="display: none;" aria-hidden="true"></i><span class="sr-only">Toggle Menu</span>';
-            // Reinitialize Lucide icons
+            dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
             try {
                 lucide.createIcons();
             } catch (e) {
@@ -335,9 +284,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Lazy load images when they come into view
+    // Lazy load images
     const images = document.querySelectorAll('img[data-src]');
-    
     const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -348,30 +296,24 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
     images.forEach(img => imageObserver.observe(img));
 });
 
 // Toast notification function
 function showToast() {
     const toast = document.getElementById('successToast');
-    
     if (toast) {
         toast.classList.add('show');
-        
-        // Hide toast after 5 seconds
         setTimeout(() => {
             toast.classList.remove('show');
         }, 5000);
-        
-        // Allow manual dismissal by clicking
         toast.addEventListener('click', function() {
             this.classList.remove('show');
         });
     }
 }
 
-// Utility function for smooth scroll to element
+// Utility function for smooth scroll
 function scrollToElement(elementId, offset = 100) {
     const element = document.getElementById(elementId);
     if (element) {
@@ -390,7 +332,6 @@ function validateEmail(email) {
 }
 
 function showError(message) {
-    // Create error toast
     const errorToast = document.createElement('div');
     errorToast.className = 'toast error';
     errorToast.innerHTML = `
@@ -402,18 +343,13 @@ function showError(message) {
             </div>
         </div>
     `;
-    
-    // Style error toast
     errorToast.style.background = 'linear-gradient(135deg, #ef4444, #f97316)';
-    
     document.body.appendChild(errorToast);
     try {
-        lucide.createIcons(); // Reinitialize icons for the new element
+        lucide.createIcons();
     } catch (e) {
         console.warn('Lucide icons failed to load for error toast:', e);
     }
-    
-    // Show and auto-hide error toast
     setTimeout(() => errorToast.classList.add('show'), 100);
     setTimeout(() => {
         errorToast.classList.remove('show');
