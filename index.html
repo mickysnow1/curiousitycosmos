@@ -1,127 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="LearnSpark - Children's Learning Platform">
-    <title>LearnSpark - Where Curiosity Meets Learning Adventures</title>
-    <link rel="stylesheet" href="learnspark-styles.css">
-    <!-- Lucide Icons (specific version for reliability) -->
-    <script src="https://unpkg.com/lucide@0.441.0/dist/umd/lucide.min.js"></script>
-</head>
-<body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <div class="logo-icon">
-                    <i data-lucide="lightbulb" aria-hidden="true"></i>
-                </div>
-                <span class="logo-text">LearnSpark</span>
+<!-- Header -->
+<header class="header">
+    <div class="container">
+        <div class="logo">
+            <div class="logo-icon">
+                <i data-lucide="lightbulb" aria-hidden="true"></i>
             </div>
-            <!-- Desktop Navigation -->
-            <nav class="navbar desktop-nav" aria-label="Main navigation">
-                <div class="menu-toggle" aria-label="Toggle navigation" id="mobileMenuBtn" aria-expanded="false">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="/">Home</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle">Learn</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#toddlers">Ages 1–3 (Early Learning)</a></li>
-                            <li><a href="#preschool">Ages 4–5 (Pre-K & Kindergarten)</a></li>
-                            <li><a href="#elementary">Ages 6–10 (Elementary)</a></li>
-                            <li><a href="#middle">Ages 11–13 (Middle School)</a></li>
-                            <li><a href="#teen">Ages 14–16 (High School Prep)</a></li>
-                            <li><a href="#all-ages">All Ages</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle">For Parents</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#parent-login">Parental Dashboard</a></li>
-                            <li><a href="#parent-help">Parent Resources</a></li>
-                            <li><a href="#community">Community Forum</a></li>
-                            <li><a href="#child-safety">Safety & Privacy</a></li>
-                            <li><a href="#support">Support</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle">For Schools</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#teacher-portal">School Integrations</a></li>
-                            <li><a href="#teacher-resources">Educator Resources</a></li>
-                            <li><a href="#tools">Classroom Tools</a></li>
-                            <li><a href="#partnerships">Partnership Program</a></li>
-                            <li><a href="#support">Support for Educators</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle">Fun Zone</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#games">Educational Games</a></li>
-                            <li><a href="#activities">Creative Activities</a></li>
-                            <li><a href="#videos">Videos & Animations</a></li>
-                            <li><a href="#rewards">Rewards & Badges</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle">About</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#about">Our Mission</a></li>
-                            <li><a href="#why-us">Why Us?</a></li>
-                            <li><a href="#team">Team</a></li>
-                            <li><a href="#contact">Contact Us</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#pricing" class="cta-button">Start Free Trial</a></li>
-                </ul>
-            </nav>
+            <span class="logo-text">LearnSpark</span>
         </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1 class="hero-title">
-                Where <span class="gradient-text-blue">Curiosity</span> Meets<br>
-                Learning <span class="gradient-text-purple">Adventures</span>
-            </h1>
-            <p class="hero-subtitle">
-                Spark your child's love for learning through interactive challenges, real-world activities, and meaningful rewards
-            </p>
-            
-            <div class="key-features">
-                <div class="feature-item">
-                    <span class="feature-icon">⭐</span>
-                    <span class="feature-text">Reward-based system</span>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">🌍</span>
-                    <span class="feature-text">Offline activities included</span>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">👨‍🏫</span>
-                    <span class="feature-text">Teacher collaboration</span>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">👪</span>
-                    <span class="feature-text">Parent engagement tools</span>
-                </div>
+        <!-- Desktop Navigation -->
+        <nav class="navbar desktop-nav" aria-label="Main navigation">
+            <div class="menu-toggle" aria-label="Toggle navigation" id="mobileMenuBtn" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
+            <ul class="nav-menu">
+                <li><a href="#hero">Home</a></li> <!-- Changed from href="/" to href="#hero" -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Learn</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#toddlers">Ages 1–3 (Early Learning)</a></li>
+                        <li><a href="#preschool">Ages 4–5 (Pre-K & Kindergarten)</a></li>
+                        <li><a href="#elementary">Ages 6–10 (Elementary)</a></li>
+                        <li><a href="#middle">Ages 11–13 (Middle School)</a></li>
+                        <li><a href="#teen">Ages 14–16 (High School Prep)</a></li>
+                        <li><a href="#all-ages">All Ages</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">For Parents</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#parent-login">Parental Dashboard</a></li>
+                        <li><a href="#parent-help">Parent Resources</a></li>
+                        <li><a href="#community">Community Forum</a></li>
+                        <li><a href="#child-safety">Safety & Privacy</a></li>
+                        <li><a href="#support">Support</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">For Schools</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#teacher-portal">School Integrations</a></li>
+                        <li><a href="#teacher-resources">Educator Resources</a></li>
+                        <li><a href="#tools">Classroom Tools</a></li>
+                        <li><a href="#partnerships">Partnership Program</a></li>
+                        <li><a href="#support">Support for Educators</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Fun Zone</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#games">Educational Games</a></li>
+                        <li><a href="#activities">Creative Activities</a></li>
+                        <li><a href="#videos">Videos & Animations</a></li>
+                        <li><a href="#rewards">Rewards & Badges</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">About</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#about">Our Mission</a></li>
+                        <li><a href="#why-us">Why Us?</a></li>
+                        <li><a href="#team">Team</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </li>
+                <li><a href="#pricing" class="cta-button">Start Free Trial</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
-            <div class="hero-buttons">
-                <a href="#pricing" class="cta-button primary">Begin the Adventure</a>
-                <a href="#demo" class="cta-button secondary">
-                    <i data-lucide="play"></i>
-                    Watch Demo Video
-                </a>
+<!-- Hero Section (with added id="hero") -->
+<section class="hero" id="hero">
+    <div class="container">
+        <h1 class="hero-title">
+            Where <span class="gradient-text-blue">Curiosity</span> Meets
+            Learning <span class="gradient-text-purple">Adventures</span>
+        </h1>
+        <p class="hero-subtitle">
+            Spark your child's love for learning through interactive challenges, real-world activities, and meaningful rewards
+        </p>
+        <div class="key-features">
+            <div class="feature-item">
+                <span class="feature-icon"></span>
+                <span class="feature-text">Reward-based system</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon"></span>
+                <span class="feature-text">Offline activities included</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon"></span>
+                <span class="feature-text">Teacher collaboration</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon"></span>
+                <span class="feature-text">Parent engagement tools</span>
             </div>
         </div>
-    </section>
+        <div class="hero-buttons">
+            <a href="#pricing" class="cta-button primary">Begin the Adventure</a>
+            <a href="#demo" class="cta-button secondary">
+                <i data-lucide="play"></i>
+                Watch Demo Video
+            </a>
+        </div>
+    </div>
+</section>
 
     <!-- Trust Indicators -->
     <section class="trust-indicators">
