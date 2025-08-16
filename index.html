@@ -6,8 +6,8 @@
     <meta name="description" content="LearnSpark - Children's Learning Platform">
     <title>LearnSpark - Where Curiosity Meets Learning Adventures</title>
     <link rel="stylesheet" href="learnspark-styles.css">
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <!-- Lucide Icons (use a specific version for reliability) -->
+    <script src="https://unpkg.com/lucide@0.441.0/dist/umd/lucide.min.js"></script>
 </head>
 <body>
     <!-- Header -->
@@ -15,13 +15,13 @@
         <div class="container">
             <div class="logo">
                 <div class="logo-icon">
-                    <i data-lucide="lightbulb"></i>
+                    <i data-lucide="lightbulb" aria-hidden="true"></i>
                 </div>
                 <span class="logo-text">LearnSpark</span>
             </div>
             
             <!-- Desktop Navigation -->
-            <nav class="nav desktop-nav">
+            <nav class="nav desktop-nav" aria-label="Main navigation">
                 <ul>
                     <li><a href="#toddlers">Toddlers (1-3)</a></li>
                     <li><a href="#preschool">Preschool (4-5)</a></li>
@@ -35,13 +35,14 @@
             </nav>
 
             <!-- Mobile Menu Button -->
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i data-lucide="menu" id="menuIcon"></i>
-                <i data-lucide="x" id="closeIcon" style="display: none;"></i>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu" aria-expanded="false">
+                <i data-lucide="menu" id="menuIcon" aria-hidden="true"></i>
+                <i data-lucide="x" id="closeIcon" style="display: none;" aria-hidden="true"></i>
+                <span class="sr-only">Toggle Menu</span>
             </button>
 
             <!-- Mobile Navigation -->
-            <nav class="nav mobile-nav" id="mobileNav">
+            <nav class="nav mobile-nav" id="mobileNav" aria-label="Mobile navigation">
                 <ul>
                     <li><a href="#toddlers">Toddlers (1-3)</a></li>
                     <li><a href="#preschool">Preschool (4-5)</a></li>
@@ -344,7 +345,8 @@
                         <h3>Is LearnSpark suitable for my 3-year-old?</h3>
                         <i data-lucide="chevron-down" class="faq-icon"></i>
                     </div>
-                    <div class="faq-answer">
+                    <div class="fa
+q-answer">
                         <p>Absolutely! Our toddler program (ages 1-3) focuses on sensory exploration, basic colors, shapes, and simple cause-and-effect activities. All content is developmentally appropriate and designed to spark natural curiosity.</p>
                     </div>
                 </div>
