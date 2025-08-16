@@ -19,38 +19,64 @@
                 </div>
                 <span class="logo-text">LearnSpark</span>
             </div>
-            
             <!-- Desktop Navigation -->
-            <nav class="nav desktop-nav" aria-label="Main navigation">
-                <ul>
-                    <li><a href="#toddlers">Toddlers (1-3)</a></li>
-                    <li><a href="#preschool">Preschool (4-5)</a></li>
-                    <li><a href="#elementary">Elementary (6-10)</a></li>
-                    <li><a href="#middle">Middle (11-13)</a></li>
-                    <li><a href="#teen">Teen (14-16)</a></li>
-                    <li><a href="#parent-login">Parent Login</a></li>
-                    <li><a href="#teacher-portal">Teacher Portal</a></li>
-                    <li><a href="#pricing" class="cta-button">Start Free Trial</a></li>
-                </ul>
-            </nav>
-
-            <!-- Mobile Menu Button -->
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu" aria-expanded="false">
-                <i data-lucide="menu" id="menuIcon" aria-hidden="true"></i>
-                <i data-lucide="x" id="closeIcon" style="display: none;" aria-hidden="true"></i>
-                <span class="sr-only">Toggle Menu</span>
-            </button>
-
-            <!-- Mobile Navigation -->
-            <nav class="nav mobile-nav" id="mobileNav" aria-label="Mobile navigation">
-                <ul>
-                    <li><a href="#toddlers">Toddlers (1-3)</a></li>
-                    <li><a href="#preschool">Preschool (4-5)</a></li>
-                    <li><a href="#elementary">Elementary (6-10)</a></li>
-                    <li><a href="#middle">Middle (11-13)</a></li>
-                    <li><a href="#teen">Teen (14-16)</a></li>
-                    <li><a href="#parent-login">Parent Login</a></li>
-                    <li><a href="#teacher-portal">Teacher Portal</a></li>
+            <nav class="navbar desktop-nav" aria-label="Main navigation">
+                <div class="menu-toggle" aria-label="Toggle navigation" id="mobileMenuBtn" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="/">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Learn</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#toddlers">Ages 1–3 (Early Learning)</a></li>
+                            <li><a href="#preschool">Ages 4–5 (Pre-K & Kindergarten)</a></li>
+                            <li><a href="#elementary">Ages 6–10 (Elementary)</a></li>
+                            <li><a href="#middle">Ages 11–13 (Middle School)</a></li>
+                            <li><a href="#teen">Ages 14–16 (High School Prep)</a></li>
+                            <li><a href="#all-ages">All Ages</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">For Parents</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#parent-login">Parental Dashboard</a></li>
+                            <li><a href="#parent-help">Parent Resources</a></li>
+                            <li><a href="#community">Community Forum</a></li>
+                            <li><a href="#child-safety">Safety & Privacy</a></li>
+                            <li><a href="#support">Support</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">For Schools</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#teacher-portal">School Integrations</a></li>
+                            <li><a href="#teacher-resources">Educator Resources</a></li>
+                            <li><a href="#tools">Classroom Tools</a></li>
+                            <li><a href="#partnerships">Partnership Program</a></li>
+                            <li><a href="#support">Support for Educators</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Fun Zone</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#games">Educational Games</a></li>
+                            <li><a href="#activities">Creative Activities</a></li>
+                            <li><a href="#videos">Videos & Animations</a></li>
+                            <li><a href="#rewards">Rewards & Badges</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">About</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#about">Our Mission</a></li>
+                            <li><a href="#why-us">Why Us?</a></li>
+                            <li><a href="#team">Team</a></li>
+                            <li><a href="#contact">Contact Us</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#pricing" class="cta-button">Start Free Trial</a></li>
                 </ul>
             </nav>
